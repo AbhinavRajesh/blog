@@ -1,0 +1,96 @@
+{{
+  const { globalMeta, contentArray, $root } = Abell;
+
+  const Navbar = require('./components/Navbar.abell');
+  const BlogsList = require('./components/BlogsList.abell');
+  const Footer = require('./components/Footer.abell');
+}}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <link rel="stylesheet" href="{{$root}}/static-assets/styles.css"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="{{$root}}/static-assets/images/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{$root}}/static-assets/images/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{$root}}/static-assets/images/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{$root}}/static-assets/images/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{$root}}/static-assets/images/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{$root}}/static-assets/images/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{$root}}/static-assets/images/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{$root}}/static-assets/images/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{$root}}/static-assets/images/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{{$root}}/static-assets/images/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{$root}}/static-assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{$root}}/static-assets/images/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{$root}}/static-assets/images/icons/favicon-16x16.png">
+  <link rel="manifest" href="{{$root}}/static-assets/images/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{$root}}/static-assets/images/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <title>{{ globalMeta.title }}</title>
+  <style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    padding: 50px 0;
+  }
+  .container i {
+    padding: 10px;
+    color: var(--color-light-secondary);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .dark i {
+    color: var(--color-dark-primary);
+  }
+  .dark {
+    background-color: var(--background-dark-secondary);
+    color: var(--color-dark-primary);
+  }
+  </style>
+</head>
+<body id="body">
+  <Navbar props={
+    shortName: globalMeta.shortName,
+    $root,
+  } />
+  <main>
+    <section class="container" id="home">
+      <h1>Don't Miss these Articles</h1>
+      <i class="fas fa-adjust" onclick="toggleDarkMode()" id="mode"></i>
+    </section>
+    <BlogsList props={contentArray} />
+  </main>
+  <Footer />
+</body>
+<script>
+  let body = document.getElementById("body").classList;
+  if ( !localStorage.getItem("theme") ) {
+    if ( window.matchMedia('prefers-color-scheme: dark').matches ) { 
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  } else {
+    if ( localStorage.getItem("theme") === "dark" ) {
+      body.add("dark")
+    } else {
+      body.remove("dark")
+    }
+  }
+  const toggleDarkMode = () => {
+    let newTheme = localStorage.getItem("theme") === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", newTheme);
+    body.toggle("dark");    
+  }
+</script>
+</html>
+

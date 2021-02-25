@@ -1,0 +1,80 @@
+{{
+  const { globalMeta, meta, importContent, $root } = Abell;
+  
+  const Navbar = require('../components/Navbar.abell')
+  const Footer = require('../components/Footer.abell')
+}}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <link rel="stylesheet" href="{{$root}}/static-assets/styles.css"/>
+  <link rel="stylesheet" href="{{$root}}/static-assets/blog-styles.css"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="{{$root}}/static-assets/images/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{$root}}/static-assets/images/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{$root}}/static-assets/images/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{$root}}/static-assets/images/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{$root}}/static-assets/images/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{$root}}/static-assets/images/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{$root}}/static-assets/images/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{$root}}/static-assets/images/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{$root}}/static-assets/images/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="{{$root}}/static-assets/images/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{$root}}/static-assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{$root}}/static-assets/images/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{$root}}/static-assets/images/icons/favicon-16x16.png">
+  <link rel="manifest" href="{{$root}}/static-assets/images/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{$root}}/static-assets/images/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <title>{{ meta.title }} - {{ globalMeta.title }}</title>
+  <style>
+    body {
+      background-color: var(--background-light-secondary);
+    }
+    .dark {
+      color: var(--color-dark-secondary);
+      background-color: var(--background-dark-secondary);
+    }
+    .blog-container {
+      display: flex;
+      justify-content: center;
+    }
+    .blog-content {
+      padding: 50px;
+      width: 800px;
+    }
+  </style>
+</head>
+<body id="body">
+  <Navbar props={
+    shortName: globalMeta.shortName,
+    $root
+  } />
+  <main class="blog-container">
+  <article class="blog-content">
+    <h1>{{ meta.title }}</h1>
+    <div class="createdAt">{{ meta.$createdAt.toDateString() }}</div>
+    {{ importContent(`${meta.$path}/index.md`) }}
+  <article>
+  </main>
+  <Footer/>
+</body>
+<script>
+  let body = document.getElementById("body").classList;
+  if ( !localStorage.getItem("theme") ) {
+    if ( window.matchMedia('prefers-color-scheme: dark').matches ) { 
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  } else {
+    if ( localStorage.getItem("theme") === "dark" ) {
+      body.add("dark")
+    } else {
+      body.remove("dark")
+    }
+  }
+</script>
+</html>

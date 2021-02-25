@@ -1,0 +1,104 @@
+<AbellComponent>
+{{ const { brand, $root } = props; }}
+<template>
+  <nav id="topnav">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="{{$root}}" id="brand">
+          <img alt="Abell Logo" src="{{$root}}/static-assets/images/logo.svg" width="30"/>
+          <span class="brand-name">{{ props.shortName }}</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="https://abhinavrajesh.me" target="_blank" rel="noopener noreferrer" class="nav-item">Portfolio</a>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<style inlined>
+  nav {
+    background-color: var(--background-light-primary);
+    display: flex;
+    justify-content: center;
+  }
+  .dark nav {
+    background-color: var(--background-dark-primary);
+  }
+  .nav-container {
+    display: flex;
+    width: 800px;
+    color: var(--color-light-primary);
+  }
+
+  .nav-container .logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 3;
+    font-size: 18px;
+  }
+  .nav-container .logo a {
+    font-weight: 500;
+    color: var(--color-light-primary);
+  }
+  .dark .logo a {
+    color: var(--color-dark-primary);
+  }
+  nav .logo a:hover {
+    text-decoration: none;
+  } 
+  nav .nav-links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-items: stretch;
+  }
+
+  nav .nav-item {
+    padding: 30px 0px;
+    font-size: 18px;
+    display: inline-block;
+    color: var(--color-light-primary);
+    transition: color .3s ease;
+  }
+
+  .dark .nav-item {
+    color: var(--color-dark-primary);
+  }
+
+  nav .nav-item:hover {
+    color: var(--color-light-secondary);
+    transition: all .5s ease;
+  }
+
+  .dark .nav-item:hover {
+    text-decoration: none;
+    color: var(--color-dark-secondary);
+    transition: all .5s ease-in-out;
+  }
+
+  .dark {
+    color: var(--color-dark-primary);
+    background-color: var(--background-dark-primary);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 0px 10px;
+    }
+  }
+</style>
+</AbellComponent>
+
+
+<!--
+  1. Styles are scoped by default.
+  You can use 'global' to remove the scope
+
+  2. 'inlined' attribute on script or style, adds the content to the html 
+  inside style or script tag.
+
+  With this you can load critical style/scripts faster.
+-->

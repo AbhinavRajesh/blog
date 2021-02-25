@@ -1,0 +1,63 @@
+<AbellComponent>
+{{ const { contentArray } = props }}
+<template>
+  <section id="blogs" class="blogs">
+    {{
+      contentArray.map(meta => /* html */`
+        <a href="${meta.$path}/">
+          <article>
+            <h3>${meta.title}</h3>
+            <p class="createdat-date">${meta.$createdAt.toDateString()}</p>
+            <p class="description">${meta.description}</p>
+          </article>
+        </a>
+      `);
+    }}
+  </section>
+</template>
+
+<style>
+  .blogs {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+padding-bottom: 50px;
+  } 
+  .blogs a {
+    text-decoration: none;
+    color: var(--color-light-secondary);
+  }
+  .dark .blogs a {
+    color: var(--color-dark-secondary);
+  }
+  .blogs a h3 {
+    font-size: 28px;
+    color: var(--links);
+  }
+  .createdat-date {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--color-light-secondary);
+  }
+  .description {
+    padding: 10px 0;
+  }
+  .dark .createdat-date {
+    color: var(--color-dark-secondary);
+  }
+  article {
+    background-color: var(--background-light-primary);  
+    padding: 30px;
+    border-radius: 7px;
+    margin: 10px;
+    flex: 1;
+    min-height: 200px;
+  }
+
+  .dark article {
+    background-color: var(--background-dark-primary);  
+  }
+
+
+</style>
+</AbellComponent>
