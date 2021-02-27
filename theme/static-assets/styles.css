@@ -50,8 +50,8 @@ code {
   font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 100px 20px;
+@media screen and (max-width: 320px) {
+  body {
+    width: 320px;
   }
 }

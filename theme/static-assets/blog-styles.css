@@ -34,6 +34,7 @@ pre {
   padding: 30px 15px;
   border-radius: 6px;
   margin: 15px 0;
+  overflow-x: scroll;
 }
 p code,
 li > code {
@@ -46,4 +47,35 @@ li > code {
 .dark pre,
 .dark code {
   background-color: var(--background-dark-primary);
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+  .createdat {
+    font-size: 12px;
+    margin: -10px 0 20px 0;
+  }
+  p,
+  li {
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  ul,
+  ol {
+    padding: 5px 10px;
+  }
+  pre {
+    padding: 15px 7px;
+  }
+  p code,
+  li > code {
+    padding: 5px;
+  }
 }

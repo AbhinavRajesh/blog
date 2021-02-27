@@ -1,4 +1,6 @@
-As the title suggests this is my first ever blog post I think I should definetly introduce my self! I'm [Abhinav Rajesh](https://abhinavrajesh.me). I'm a passionate UI/UX Designer and Developer. I'm currently pursuing my B.Tech Degree in Computer Science Engineering from School Of Engineering, CUSAT and I'm a Sophomore
+As the title suggests this is my first ever blog post I think I should definetly introduce my self! I'm [Abhinav Rajesh](https://abhinavrajesh.xyz). I'm a passionate UI/UX Designer and Developer. I'm currently pursuing my B.Tech Degree in Computer Science Engineering from School Of Engineering, CUSAT and I'm a Sophomore.
+<br /><br />
+_About the blog now, the blog posts here would be mostly related to **tech**._
 
 ## What's in this Blog?
 

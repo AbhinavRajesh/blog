@@ -56,6 +56,16 @@
     background-color: var(--background-dark-secondary);
     color: var(--color-dark-primary);
   }
+  @media screen and (max-width: 900px) {
+    .container {
+      width: auto;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .container h1 {
+      font-size: 1.4rem;
+    }
+  }
   </style>
 </head>
 <body id="body">

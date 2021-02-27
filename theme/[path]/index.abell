@@ -33,6 +33,9 @@
     body {
       background-color: var(--background-light-secondary);
     }
+    main {
+      padding: 30px 0;
+    }
     .dark {
       color: var(--color-dark-secondary);
       background-color: var(--background-dark-secondary);
@@ -45,6 +48,17 @@
       padding: 50px;
       width: 800px;
     }
+    @media screen and (max-width: 900px) {
+    .blog-content {
+      width: auto;
+      max-width: 600px;
+    }
+    }
+    @media screen and (max-width: 600px) {
+      .blog-content {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body id="body">
@@ -53,11 +67,11 @@
     $root
   } />
   <main class="blog-container">
-  <article class="blog-content">
-    <h1>{{ meta.title }}</h1>
-    <div class="createdAt">{{ meta.$createdAt.toDateString() }}</div>
-    {{ importContent(`${meta.$path}/index.md`) }}
-  <article>
+    <article class="blog-content">
+      <h1>{{ meta.title }}</h1>
+      <div class="createdAt">{{ meta.$createdAt.toDateString() }}</div>
+      {{ importContent(`${meta.$path}/index.md`) }}
+    <article>
   </main>
   <Footer/>
 </body>

@@ -6,7 +6,7 @@
   </footer>
 </template>
 
-<style>
+<style inlined>
   footer {
     display: flex;
     flex-direction: column;

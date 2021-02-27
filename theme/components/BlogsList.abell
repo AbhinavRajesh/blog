@@ -16,12 +16,13 @@
   </section>
 </template>
 
-<style>
+<style inlined>
   .blogs {
     width: 800px;
     display: flex;
     flex-direction: column;
-padding-bottom: 50px;
+    align-items: center;
+    padding-bottom: 50px;
   } 
   .blogs a {
     text-decoration: none;
@@ -58,6 +59,18 @@ padding-bottom: 50px;
     background-color: var(--background-dark-primary);  
   }
 
-
+  @media screen and (max-width: 900px) {
+    .blogs {
+      width: auto;
+    }
+    .blogs a {
+      width: 600px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .blogs a {
+      width: 80%;
+    }
+  }
 </style>
 </AbellComponent>
