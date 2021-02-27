@@ -4,8 +4,8 @@
   <nav id="topnav">
     <div class="nav-container">
       <div class="logo">
-        <a href="{{$root}}" id="brand">
-          <img alt="Abell Logo" src="{{$root}}/static-assets/images/logo.svg" width="30"/>
+        <a href="/" id="brand" aria-label="logo">
+          <img alt="Abell Logo" src="{{$root}}/static-assets/images/logo.svg" width="30" height="13" />
           <span class="brand-name">{{ props.shortName }}</span>
         </a>
       </div>
@@ -21,6 +21,10 @@
     background-color: var(--background-light-primary);
     display: flex;
     justify-content: center;
+  }
+  .logo a img {
+    width: 30px;
+    height: 13px;
   }
   .dark nav {
     background-color: var(--background-dark-primary);

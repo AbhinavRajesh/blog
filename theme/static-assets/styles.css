@@ -7,8 +7,8 @@
 }
 
 :root {
-  /* --links: rgb(35, 126, 245); */
-  --links: #5821f1;
+  --links-light: #5821f1;
+  --links-dark: #29b9fc;
 
   --background-light-primary: #ffffff;
   --background-light-secondary: #f5f5f5;
@@ -31,11 +31,15 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--links);
+  color: var(--links-light);
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.dark a {
+  color: var(--links-dark);
 }
 
 h1 {

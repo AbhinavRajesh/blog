@@ -29,7 +29,7 @@ a {
   font-weight: 500;
 }
 pre {
-  background-color: var(--background-light-primary);
+  background-color: var(--background-dark-primary);
   color: #abb2bf;
   padding: 30px 15px;
   border-radius: 6px;
@@ -40,13 +40,14 @@ p code,
 li > code {
   padding: 5px;
   border-radius: 5px;
-  background-color: var(--background-light-primary);
+  background-color: var(--background-dark-primary);
   color: #abb2bf;
 }
 
-.dark pre,
-.dark code {
-  background-color: var(--background-dark-primary);
+pre,
+p code,
+li > code {
+  color: #abb2bf;
 }
 
 @media screen and (max-width: 600px) {

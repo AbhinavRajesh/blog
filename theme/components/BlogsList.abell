@@ -4,9 +4,9 @@
   <section id="blogs" class="blogs">
     {{
       contentArray.map(meta => /* html */`
-        <a href="${meta.$path}/">
+        <a href="${meta.$path}/" aria-label=${meta.title}>
           <article>
-            <h3>${meta.title}</h3>
+            <h2>${meta.title}</h2>
             <p class="createdat-date">${meta.$createdAt.toDateString()}</p>
             <p class="description">${meta.description}</p>
           </article>
@@ -31,9 +31,13 @@
   .dark .blogs a {
     color: var(--color-dark-secondary);
   }
-  .blogs a h3 {
+  .blogs a h2 {
     font-size: 28px;
-    color: var(--links);
+    color: var(--links-light);
+  }
+  .dark .blogs a h2 {
+    font-size: 28px;
+    color: var(--links-dark);
   }
   .createdat-date {
     font-size: 12px;
